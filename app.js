@@ -1,18 +1,19 @@
 const app = Vue.createApp({
   data() {
     return {
-      name: 'koo',
-      age: 30,
-      imageUrl:
-        'https://i.namu.wiki/i/5alxB2XSPo0QDTnzhdlf-TTIk-ZK9kkCnhWoZbxEMzwdFWE_oJxllBmBi70WXHGZ5E4s-qLk6S8GbHoYgYIsg-zafTI2cfwlFoIMQir3CVhaRAMzNwMXPmV2Qsk3aveJAawiNwb58neKBt7E5aWT8cNBnyuTzf0rDrDY9QkShkI.webp',
+      userInput: '',
+      confirmedInput: '',
     };
   },
   methods: {
-    calculateAge() {
-      return this.age + 5;
+    showAlert() {
+      alert('This works!');
     },
-    calculatRandom() {
-      return Math.random();
+    saveInput(event) {
+      this.userInput = event.target.value;
+    },
+    confirmInput() {
+      this.confirmedInput = this.userInput;
     },
   },
 });
