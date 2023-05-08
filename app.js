@@ -1,19 +1,31 @@
 const app = Vue.createApp({
   data() {
     return {
-      userInput: '',
-      confirmedInput: '',
+      number: 0,
     };
   },
+  computed: {
+    result() {
+      if (this.number < 37) {
+        return 'Not there yet';
+      } else if (this.number === 37) {
+        return this.number;
+      } else {
+        return 'Too much';
+      }
+    },
+  },
+  watch: {
+    result() {
+      const that = this;
+      setTimeout(function () {
+        that.number = 0;
+      }, 5000);
+    },
+  },
   methods: {
-    showAlert() {
-      alert('This works!');
-    },
-    saveInput(event) {
-      this.userInput = event.target.value;
-    },
-    confirmInput() {
-      this.confirmedInput = this.userInput;
+    addNumber(num) {
+      this.number = this.number + num;
     },
   },
 });
